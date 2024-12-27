@@ -26,8 +26,13 @@ jobs:
     # Install dependencies
     - name: Install dependencies
       run: |
+        pip install autopep8
+        autopep8 --in-place --aggressive app.py
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+        pip install black
+        black app.py
+
 
     # Lint the code
     - name: Run flake8
